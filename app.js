@@ -3,6 +3,10 @@ const app = require('express')(),
 
 app.use(bodyParser.json())
 
+app.get('/', (req,res) => {
+  res.redirect('https://github.com/m1guelpf/ghostletter');
+});
+
 });
 
 var port = process.env.PORT || 3000;
