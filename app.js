@@ -7,6 +7,9 @@ app.get('/', (req,res) => {
   res.redirect('https://github.com/m1guelpf/ghostletter');
 });
 
+app.post('/', (req, res) => {
+  // handle webhook
+  res.send('OK');
 });
 
 var port = process.env.PORT || 3000;
