@@ -1,5 +1,6 @@
 const app = require('express')(),
-      bodyParser = require('body-parser');
+      bodyParser = require('body-parser'),
+      { handleWebhook } = require('./webhookHandler');
 
 require('dotenv').load();
 
@@ -9,10 +10,10 @@ app.get('/', (req,res) => {
   res.redirect('https://github.com/m1guelpf/ghostletter');
 });
 
-app.post('/', (req, res) => {
-  // handle webhook
+app.post('/', asyncHandler(async(req, res) => {
+  await handleWebhook(req);
   res.send('OK');
-});
+}));
 
 var port = process.env.PORT || 3000;
 
