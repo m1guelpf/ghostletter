@@ -1,6 +1,8 @@
 const app = require('express')(),
       bodyParser = require('body-parser');
 
+require('dotenv').load();
+
 app.use(bodyParser.json())
 
 app.get('/', (req,res) => {
