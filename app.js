@@ -11,6 +11,10 @@ app.get('/', (req,res) => {
   res.redirect('https://github.com/m1guelpf/ghostletter');
 });
 
+app.get('health', (req,res) => {
+  res.send('OK');
+});
+
 app.post('/', asyncHandler(async(req, res) => {
   await handleWebhook(req);
   res.send('OK');
