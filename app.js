@@ -11,7 +11,7 @@ app.get('/', (req,res) => {
   res.redirect('https://github.com/m1guelpf/ghostletter');
 });
 
-app.get('health', (req,res) => {
+app.get('/health', (req, res) => {
   res.send('OK');
 });
 
