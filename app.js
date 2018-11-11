@@ -1,5 +1,6 @@
 const app = require('express')(),
       bodyParser = require('body-parser'),
+      asyncHandler = require('express-async-handler'),
       { handleWebhook } = require('./webhookHandler');
 
 require('dotenv').load();
