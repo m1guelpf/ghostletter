@@ -1,3 +1,5 @@
+const mailerlite = require('./mailerlite');
+
 const subscribeEvent = req => {
     return req.body.event == 'subscriber.added'
 }
@@ -12,9 +14,11 @@ const getEmail = req => {
 
 const handleWebhook = async req => {
     if (subscribeEvent(req)) {
+        await mailerlite.subscribeUser(getEmail(req))
     }
     
     if (unsubscribeEvent(req)) {
+        await mailerlite.unsubscribeUser(getEmail(req))
     }
 }
 
